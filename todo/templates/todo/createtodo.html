@@ -1,0 +1,18 @@
+{% extends "todo/base.html" %}
+
+
+{% block content %}
+
+<h1>建立待辦事項</h1>
+
+<p> {{ error }} </p>
+
+<form method="post" />
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+
+    <button type="submit"> SAVE </button>
+</form>
+
+{% endblock %}

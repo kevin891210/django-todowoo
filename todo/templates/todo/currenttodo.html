@@ -1,0 +1,27 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+    
+    
+
+    <a href="{% url 'createtodo' %}"> 創建代辦事項 </a> 
+
+    <p>
+    Current To Do list
+    </p> 
+
+    <ul>
+        {% for todo in todos %}
+        <li>
+            <a href="{% url 'viewtodo' todo.id  %}">
+            {% if todo.important %}<b>{% endif %}
+                {{todo.title}}
+            {% if todo.important %}</b>{% endif %}
+            {% if todo.memo %} - {{todo.memo}} {% endif %} 
+            </a>   
+        </li>
+        {% endfor %}
+    </ul>
+
+<a href="{% url 'completedtodo' %}"> 已完成代辦事項 </a> 
+{% endblock %}

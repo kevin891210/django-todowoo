@@ -1,0 +1,24 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+
+    <h1> {{ todos.title }}</h1>
+
+    <form method="post" />
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" />更新</button>
+    </form><br />
+
+    <form method="POST" action="{% url 'completetodo' todos.id %}" />
+        {% csrf_token %}
+        <button type="submit" />完成事項</button>
+    </form><br />
+
+    <form method="POST" action="{% url 'deletetodo' todos.id %}" />
+        {% csrf_token %}
+        <button type="submit" />刪除事項</button>
+    </form><br />
+
+
+{% endblock %}
